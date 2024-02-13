@@ -41,7 +41,7 @@ namespace KodlamaIOClone.Business.Concretes
 
             Course dtoToCourse = new Course();
 
-            dtoToCourse.Id = (int)rnd.NextInt64(0, 100);
+            dtoToCourse.Id = course.Id;
             dtoToCourse.Title = course.Title;
             dtoToCourse.Description = course.Description;
             dtoToCourse.ImageUrl = course.ImageUrl;
@@ -49,15 +49,15 @@ namespace KodlamaIOClone.Business.Concretes
 
             _courseDal.Add(dtoToCourse);
         }
-        public void Update(UpdateCourseRequest course, int courseID)
+        public void Update(UpdateCourseRequest course)
         {
-            Course courseToUpdate = _courseDal.GetById(courseID);
+            Course courseToUpdate = _courseDal.GetById(course.Id);
             courseToUpdate.Id = course.Id;
             courseToUpdate.Title = course.Title;
             courseToUpdate.Description = course.Description;
             courseToUpdate.ImageUrl = course.ImageUrl;
 
-            _courseDal.Update(courseToUpdate, courseID);
+            _courseDal.Update(courseToUpdate);
         }
         public void Delete(DeleteCourseRequest course)
         {

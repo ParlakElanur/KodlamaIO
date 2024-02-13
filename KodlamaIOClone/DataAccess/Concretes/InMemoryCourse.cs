@@ -27,9 +27,9 @@ namespace KodlamaIOClone.DataAccess.Concretes
         {
            courses.Add(course);
         }
-        public void Update(Course course, int courseID)
+        public void Update(Course course)
         {
-            Course courseToUpdate = GetById(courseID);
+            Course courseToUpdate = GetById(course.Id);
             courseToUpdate.Title = course.Title;
             courseToUpdate.Description = course.Description;
             courseToUpdate.ImageUrl = course.ImageUrl;

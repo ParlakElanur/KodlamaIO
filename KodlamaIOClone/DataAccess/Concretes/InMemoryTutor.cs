@@ -26,9 +26,9 @@ namespace KodlamaIOClone.DataAccess.Concretes
         {
             tutors.Add(tutor);
         }
-        public void Update(Tutor tutor, int tutorID)
+        public void Update(Tutor tutor)
         {
-            Tutor? tutorToUpdate = tutors.Where(t => t.Id == tutorID).SingleOrDefault();
+            Tutor? tutorToUpdate = GetById(tutor.Id);
             tutorToUpdate.FullName = tutor.FullName;
             tutorToUpdate.TutorImageUrl = tutor.TutorImageUrl;
         }

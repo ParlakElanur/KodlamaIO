@@ -12,7 +12,7 @@ namespace KodlamaIOClone.DataAccess.Abstracts
         void Add(Tutor tutor);
         Tutor GetById(int id);
         List<Tutor> GetAll();
-        void Update(Tutor tutor,int tutorID);
+        void Update(Tutor tutor);
         void Delete(Tutor tutor);
     }
 }

@@ -1,4 +1,5 @@
-﻿using KodlamaIOClone.Business.Dtos.Requests;
+﻿using KodlamaIOClone.Business.Abstracts;
+using KodlamaIOClone.Business.Dtos.Requests;
 using KodlamaIOClone.Business.Dtos.Requests.TutorRequest;
 using KodlamaIOClone.Business.Dtos.Response;
 using KodlamaIOClone.Business.Dtos.Responses.TutorResponse;
@@ -12,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace KodlamaIOClone.Business.Concretes
 {
-    public class TutorManager
+    public class TutorManager : ITutorService
     {
         ITutorDal _tutorDal;
         public TutorManager(ITutorDal tutorDal)
@@ -32,22 +33,21 @@ namespace KodlamaIOClone.Business.Concretes
         }
         public void Add(AddTutorRequest tutor)
         {
-            Random rnd = new Random();
-
             Tutor dtoToTutor = new Tutor();
-            dtoToTutor.Id= (int)rnd.NextInt64(0, 100);
+            dtoToTutor.Id = tutor.Id;
             dtoToTutor.FullName = tutor.FullName;
+            dtoToTutor.TutorImageUrl= tutor.TutorImageUrl;
 
             _tutorDal.Add(dtoToTutor);
         }
-        public void Update(UpdateTutorRequest tutor,int tutorID)
+        public void Update(UpdateTutorRequest tutor)
         {
             Tutor tutorToUpdate = new Tutor();
-
+            tutorToUpdate.Id = tutor.Id;
             tutorToUpdate.FullName = tutor.FullName;
             tutorToUpdate.TutorImageUrl = tutor.TutorImageUrl;
 
-            _tutorDal.Update(tutorToUpdate, tutorID);
+            _tutorDal.Update(tutorToUpdate);
         }
         public void Delete(DeleteTutorRequest tutor)
         {

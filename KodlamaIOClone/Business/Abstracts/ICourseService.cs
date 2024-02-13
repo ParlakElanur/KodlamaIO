@@ -14,7 +14,7 @@ namespace KodlamaIOClone.Business.Abstracts
     {
         void Add(AddCourseRequest category);
         GetByIdCourseResponse GetById(int id);      
-        void Update(UpdateCourseRequest category, int id);
+        void Update(UpdateCourseRequest category);
         void Delete(DeleteCourseRequest category);
         List<GetAllCourseResponse> GetAll();
     }
