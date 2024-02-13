@@ -12,7 +12,7 @@ namespace KodlamaIOClone.DataAccess.Abstracts
         void Add(Category category);
         Category GetById(int id);
         List<Category> GetAll();
-        void Update(Category category,int categoryID);
+        void Update(Category category);
         void Delete(Category category);
 
     }

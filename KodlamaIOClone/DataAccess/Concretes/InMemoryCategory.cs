@@ -43,7 +43,7 @@ namespace KodlamaIOClone.DataAccess.Concretes
         {
             categories.Add(category);
         }
-        public void Update(Category category,int categoryID)
+        public void Update(Category category)
         {
             Category categoryToUpdate = GetById(category.Id);
             categoryToUpdate.Name = category.Name;

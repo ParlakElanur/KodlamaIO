@@ -36,11 +36,12 @@ namespace KodlamaIOClone.Business.Concretes
            
             _categoryDal.Add(dtoToCategory);
         }
-        public void Update(UpdateCategoryRequest category,int id)
+        public void Update(UpdateCategoryRequest category)
         {
-            Category categoryToUpdate = _categoryDal.GetById(id);
+            Category categoryToUpdate = new Category();
+            categoryToUpdate.Id=category.Id;
             categoryToUpdate.Name = category.Name;
-            _categoryDal.Update(categoryToUpdate,id);
+            _categoryDal.Update(categoryToUpdate);
         }
 
         public void Delete(DeleteCategoryRequest category)
